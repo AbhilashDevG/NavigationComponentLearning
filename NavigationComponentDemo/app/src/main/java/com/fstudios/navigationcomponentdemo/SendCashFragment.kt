@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.fstudios.navigationcomponentdemo.databinding.FragmentSendCashBinding
+import com.fstudios.navigationcomponentdemo.model.SampleData
 
 class SendCashFragment : Fragment(R.layout.fragment_send_cash){
 
@@ -26,7 +27,10 @@ class SendCashFragment : Fragment(R.layout.fragment_send_cash){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        sendCashBinding.etAmount.setText(SampleData.defaultAmount.value.toString())
+        SampleData.defaultAmount.observe(viewLifecycleOwner){
+            sendCashBinding.etAmount.setText(it.toString())
+        }
         val receiverName = args.receiverName
 
         sendCashBinding.tvReceiver.text = "Send cash to $receiverName"
