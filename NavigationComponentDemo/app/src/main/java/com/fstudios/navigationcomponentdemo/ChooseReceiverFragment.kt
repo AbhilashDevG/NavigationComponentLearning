@@ -28,5 +28,9 @@ class ChooseReceiverFragment : Fragment(R.layout.fragment_choose_receiver) {
             val action = ChooseReceiverFragmentDirections.actionChooseReceiverFragmentToSendCashFragment(receiverName)
             findNavController().navigate(action)
         }
+
+        chooseReceiverBinding.btnCancel.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }

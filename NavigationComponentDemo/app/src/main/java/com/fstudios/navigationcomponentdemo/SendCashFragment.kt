@@ -37,9 +37,17 @@ class SendCashFragment : Fragment(R.layout.fragment_send_cash){
             }
 
             val amount = sendCashBinding.etAmount.text.toString().toLong()
-            val action = SendCashFragmentDirections
-                .actionSendCashFragmentToConfirmDialogFragment(receiverName, amount)
+            val action = SendCashFragmentDirections.actionSendCashFragmentToConfirmDialogFragment(receiverName, amount)
             findNavController().navigate(action)
+        }
+
+        sendCashBinding.btnDone.setOnClickListener {
+            val action = SendCashFragmentDirections.actionSendCashFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
+
+        sendCashBinding.btnCancel.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment,false)
         }
 
     }
