@@ -74,6 +74,13 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/homeFragment"/>
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.navcomponentdemo.com/{receiverName}/{test}" />
+        <argument
+            android:name="test"
+            app:argType="string" />
     </fragment>
     <dialog
         android:id="@+id/confirmDialogFragment"
