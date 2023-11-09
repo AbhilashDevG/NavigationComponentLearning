@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.fstudios.navigationcomponentdemo.databinding.FragmentSettingsBinding
 import com.fstudios.navigationcomponentdemo.model.SampleData
 
@@ -30,6 +31,13 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             val defaultAmount =  fragmentSettingsBinding.etDefaultAmount.text.toString().toLong()
             SampleData.defaultAmount.value = defaultAmount
         }
+
+        fragmentSettingsBinding.btnAboutApp.setOnClickListener {
+
+            val action = MainNavGraphDirections.actionGlobalAboutAppFragment()
+            findNavController().navigate(action)
+        }
+
 
     }
 
